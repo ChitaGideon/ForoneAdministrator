@@ -18,8 +18,8 @@ Route::group(['middleware'=>['web']],function (){
 });
 
 
-//admin
-Route::group(['prefix' => 'admin', 'middleware' => ['web','auth', 'permission:admin']], function () {
+//admin //, 'admin.permission:admin'
+Route::group(['prefix' => 'admin', 'middleware' => ['admin.auth', 'permission:admin']], function () {
 
     Route::group(['namespace' => '\Forone\Controllers\Permissions'], function () {
         Route::resource('roles', 'RolesController');
